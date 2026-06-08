@@ -76,6 +76,79 @@ function WeatherCard({
         {weather.longitude}
       </p>
 
+      {/* ===== MAP SECTION ADDED ===== */}
+
+      <h3
+        className="
+          text-lg
+          font-semibold
+          mt-6
+          mb-3
+          text-center
+          sm:text-left
+        "
+      >
+        Location Map
+      </h3>
+
+      <div
+        className="
+          rounded-xl
+          overflow-hidden
+          border
+          border-slate-700
+        "
+      >
+        <iframe
+          title="location-map"
+          className="
+            w-full
+            h-56
+            sm:h-72
+            md:h-80
+            lg:h-96
+          "
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=${
+            weather.longitude - 0.05
+          },${
+            weather.latitude - 0.05
+          },${
+            weather.longitude + 0.05
+          },${
+            weather.latitude + 0.05
+          }&marker=${weather.latitude},${weather.longitude}`}
+        />
+      </div>
+
+      <div
+        className="
+          mt-3
+          text-center
+        "
+      >
+        <a
+          href={`https://www.openstreetmap.org/?mlat=${weather.latitude}&mlon=${weather.longitude}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            inline-block
+            px-4
+            py-2
+            rounded-lg
+            bg-blue-600
+            hover:bg-blue-700
+            transition
+            text-sm
+            sm:text-base
+            font-medium
+          "
+        >
+          View Full Map
+        </a>
+      </div>
+
+      {/* ===== EXISTING CONTENT CONTINUES ===== */}
+
       <div
         className="
           mt-6
